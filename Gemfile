@@ -72,3 +72,12 @@ gem 'rmagick'
 
 # config
 gem 'config'
+
+# capistrano
+group :development do
+  gem "capistrano"
+  gem 'capistrano-rails'
+  gem "capistrano-rbenv"
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger'
+end
