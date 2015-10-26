@@ -1,0 +1,11 @@
+.navbar.navbar-default{:role => "navigation"}
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to 'Top', "", class: "navbar-brand"
+  .navbar-collapse.collapse.navbar-responsive-collapse
+    %ul.nav.navbar-nav
+      %li
+        = link_to 'Projects', projects_path

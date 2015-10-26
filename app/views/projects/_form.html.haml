@@ -1,0 +1,11 @@
+= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :font_size
+  = f.input :random_num
+  = f.input :max_width
+  = f.input :offset_x
+  = f.input :offset_y
+  - if @project.new_record?
+    = f.input :element_file, as: :file
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn btn-default'
