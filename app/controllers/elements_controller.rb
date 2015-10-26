@@ -4,7 +4,8 @@ class ElementsController < ApplicationController
   def show
     height = @project.font_size
     x = @project.offset_x
-    @draw.annotate(@img, 0, 0, x, height + @project.offset_y, @seed.to_s)
+    seed_text = @seed.nil? ? " " : @seed.to_s
+    @draw.annotate(@img, 0, 0, x, height + @project.offset_y, seed_text)
     @elements.each_with_index do |elem, idx|
       y = height*(idx+2) + @project.offset_y
       @draw.annotate(@img, 0, 0, x, y, elem.body)

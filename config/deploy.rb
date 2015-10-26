@@ -23,6 +23,9 @@ set :bundle_without, [:development]
 # for speed up assets:precompile
 set :shared_children, ['system', 'log', 'pids', 'tmp/cache']
 
+# for restart
+set :passenger_restart_with_touch, true
+
 namespace :deploy do
 
   after :restart, :clear_cache do
