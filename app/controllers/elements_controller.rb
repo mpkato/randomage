@@ -1,5 +1,5 @@
 class ElementsController < ApplicationController
-  before_action :set_project, :set_elements, :set_draw, :set_img
+  before_action :set_project, :get_seed, :set_elements, :set_draw, :set_img
 
   def show
     height = @project.font_size
@@ -18,9 +18,14 @@ class ElementsController < ApplicationController
       @project = Project.find_by(name: params[:project_name])
     end
 
+    def get_seed
+      cookies[:seed] ||= rand(@project.random_num)
+      @seed = cookies[:seed].to_i
+    end
+
     def set_elements
       is_random = params[:is_random] != "0"
-      @seed = is_random ? rand(@project.random_num) : nil
+      @seed = is_random ? @seed : nil
       @elements = @project.random_elements(params[:gid], @seed)
     end
 
